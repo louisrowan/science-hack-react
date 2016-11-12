@@ -6,7 +6,7 @@ class App extends Component {
     return (
       <div className="App">
       <a href='/#/show'>Show</a><br />
-      <a href='/#/test'>Test</a>
+      <a href='/#/search'>Search</a>
         {this.props.children}
       </div>
     );

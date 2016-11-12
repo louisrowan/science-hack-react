@@ -1,5 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  border: 2px solid blue;
+  height: 800px;
+  width: 100%;
+  border: 10px solid black;
 }
 
 .App-logo {
@@ -21,4 +29,10 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.search-input {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;  
 }
