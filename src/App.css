@@ -69,7 +69,8 @@
 }
 
 .show-img:hover {
-  box-shadow: 2px 2px 2px black;
+  opacity: 0.8;
+  /*box-shadow: 2px 2px 2px black;*/
 }
 
 
@@ -94,7 +95,8 @@
 }
 
 .materials-div-double:hover {
-  box-shadow: 5px 5px 5px black;
+  background-color: #fffb99;
+  /*box-shadow: 5px 5px 5px black;*/
 }
 
 .materials-img-div {

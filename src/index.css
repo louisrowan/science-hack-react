@@ -17,11 +17,15 @@ input {
 }
 
 .experiment-h1-bg {
-  background-color: #CBDDCF;
-  margin-right: 30%;
-  margin-left: 30%;
+  background-color: #abbcaf;
+  margin: 0 30%;
   padding: 0px;
   border-radius: 8px;
+}
+
+.experiment-h1-bg > h1 {
+  padding: 10px;
+  color: white;
 }
 
 .newExperiment {
@@ -141,4 +145,10 @@ box-shadow: 3px 3px 3px 0px #128da5;
 
 .active {
     background-color: #4CAF50;
+}
+
+/* video player */
+
+.video-player {
+  
 }

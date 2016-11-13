@@ -1,5 +1,6 @@
 const React = require('react')
 const ShowHeader = require('./ShowHeader')
+import ReactPlayer from 'react-player'
 import $ from 'jquery'
 
 const Show = React.createClass({
@@ -71,10 +72,13 @@ const Show = React.createClass({
           <h2>Materials</h2>
           {materialData}
         </div>
+
+        <center><ReactPlayer url={this.state.data.video_url} /></center>
+
         <div className='show-procedure'>
           <h2>Procedure</h2>
           <ol className='procedure-list'>
-          {procedureData}
+            {procedureData}
           </ol>
         </div>
 
