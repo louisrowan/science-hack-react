@@ -14,6 +14,10 @@ h2 {
   padding-bottom: 50px;
 }
 
+.descriptionh2 {
+  padding-top: 10px;
+}
+
 .img-border {
   border-radius: 8px;
   width: 80%;
@@ -39,12 +43,26 @@ h2 {
 }
 
 .comments {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 30px;
+  background-color: #F2F2F2;
+}
+
+.comment {
+  margin: 5px;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f7f7;
+}
+
+.commentsh3 {
   display: inline-block;
   margin: 20px auto;
   border-radius: 8px;
   padding: 10px;
   width: 300px;
-  border: 1px solid black;
+  border: 1px solid #7c7c7c;
 }
 
 .box-shadow {
