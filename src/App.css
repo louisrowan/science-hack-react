@@ -167,18 +167,25 @@ input[type=checkbox] {
 }
 
 .index-experiment-thumb {
-  width: 400px;
-  height: 500px;
+  text-align: center;
+  width: 300px;
+  height: 400px;
   background: whitesmoke;
   overflow: hidden;
   float: left;
-  border: 2px solid black;
+  border: 2px solid #777777;
   border-radius: 15px;
+<<<<<<< HEAD
+  margin: 4px;
+=======
   text-align: center;
+>>>>>>> 20fddc44d393ab122f4366002d6548543ae9af30
 }
 
 .index-experiment-thumb:hover {
-  background: #488286;
+  border: 10px solid #fff64c;
+  opacity: 0.8;
+  background: #fffdc4;
   font-weight: bold;
 }
 
