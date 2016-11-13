@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+
+/* ----------------------------------------------- */
+/* Show.js styling */
+
 h2 {
   margin-top: 0px;
 }
@@ -30,7 +34,7 @@ h2 {
 
 .img-description {
   margin-left: 15%;
-    height: 400px;
+    height: 380px;
     background: #f2f2f2;
 }
 
@@ -70,3 +74,5 @@ h2 {
 -moz-box-shadow: 3px 3px 3px 0px #128da5;
 box-shadow: 3px 3px 3px 0px #128da5;
 }
+
+/* ----------------------------------------------- */

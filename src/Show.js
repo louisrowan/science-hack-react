@@ -20,6 +20,7 @@ const Show = React.createClass({
         </div>
 
         <h3 className='commentsh3'>Comments</h3>
+
         <div className='comments'>
           <div className='comment'>
             <p>This is an amazing experiment!</p>
