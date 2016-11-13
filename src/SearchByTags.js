@@ -80,7 +80,7 @@ const SearchByTags = React.createClass({
 
 
         return (
-            <div className='search-container'>
+            <div id='search-by-tags' className='search-container'>
                 <ReactTags tags={tags}
                     suggestions={suggestions}
                     handleDelete={this.handleDelete}
