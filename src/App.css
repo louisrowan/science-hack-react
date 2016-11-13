@@ -4,7 +4,7 @@
 
 .App {
   text-align: center;
-  height: 800px;
+  border: 2px solid blue;
   width: 100%;
 }
 
