@@ -5,9 +5,7 @@
 .App {
   text-align: center;
   border: 2px solid blue;
-  height: 800px;
   width: 100%;
-  border: 10px solid black;
 }
 
 .App-logo {
@@ -35,4 +33,23 @@
   padding: 5px;
   margin: 10px;
   border-radius: 5px;  
+}
+
+.materials-boxes-div {
+  border: 1px solid green;
+}
+
+.index-show-experiment {
+  border: 5px solid blue;
+  width: 600px;
+  height: 300px;
+  background: green;
+}
+
+.index-show-experiment img {
+  width: 60%;
+}
+
+.all-shown-experiments {
+  display: inline;
 }
