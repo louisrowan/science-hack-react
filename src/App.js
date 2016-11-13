@@ -5,9 +5,11 @@ const App = React.createClass({
   render() {
     return (
       <div className="App">
-         <ul id="navbar">
+        <ul id="navbar">
           <li><a href='/#/search'>Search</a></li>
           <li><a href='/#/show'>Show</a></li>
+          <li><a href='/#/new_experiment'>Create Experiment</a></li>
+          <li><a href='/#/googleMaps'>Google Maps</a></li>
         </ul>
         {this.props.children}
       </div>
