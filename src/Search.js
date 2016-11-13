@@ -1,5 +1,4 @@
 const React = require('react')
-import { WithContext as ReactTags } from 'react-tag-input'
 import $ from 'jquery'
 
 const Search = React.createClass({
@@ -8,32 +7,7 @@ const Search = React.createClass({
       materials: [],
       data: '',
       experiments: '',
-      tags: [],
-      suggestions: ["Baking Soda", "Vinegar", "Container", "Balloon", "Empty Soda Bottle", "Drinking Straw", "Lemon Juice", "Baking Soda", "Water", "Gelatin", "Corn Syrup", "Measuring Spoons", "Fork", "Eggs", "Black Light", "Highlighter Pen", "Bottle Cap", "Dish Washing Liquid", "Glitter", "Agar Powder", "Cotton Swabs", "Newspaper", "Petri Dish", "Soda Can", "Wool", "Potato", "Straw", "Orange", "Bucket", "Sugar Cubes", "Drinking Glass", "Water", "Construction Paper", "Rubber Bands", "Thermometer", "Pencil"]
     }
-  },
-  handleDelete(i) {
-        let tags = this.state.tags;
-        tags.splice(i, 1);
-        this.setState({tags: tags});
-  },
-  handleAddition(tag) {
-        let tags = this.state.tags;
-        tags.push({
-            id: tags.length + 1,
-            text: tag
-        });
-        this.setState({tags: tags});
-  },
-  handleDrag(tag, currPos, newPos) {
-        let tags = this.state.tags;
-
-        // mutate array
-        tags.splice(currPos, 1);
-        tags.splice(newPos, 0, tag);
-
-        // re-render
-        this.setState({ tags: tags });
   },
   handleChange(e){
     const newField = e.target.id
@@ -64,8 +38,6 @@ const Search = React.createClass({
     })
   },
   render(){
-    let tags = this.state.tags;
-    let suggestions = this.state.suggestions;
     let boxes;
     if (this.state.data){
           boxes = this.state.data.map((m, i) => (
@@ -98,13 +70,6 @@ const Search = React.createClass({
     }
     return (
       <div className='search-container'>
-        <div>
-          <ReactTags tags={tags}
-            suggestions={suggestions}
-            handleDelete={this.handleDelete}
-            handleAddition={this.handleAddition}
-            handleDrag={this.handleDrag} />
-          </div>
         <div className='materials-boxes-div'>
           <form className='frontpage-boxes'>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { WithContext as ReactTags } from 'react-tag-input'
+const SearchByTags = require('./SearchByTags')
 import splashImage from '../public/kids-doing-science.jpg'
 import brainIcon from '../public/brain.png'
 import beakerIcon from '../public/beaker.jpg'
@@ -14,6 +14,7 @@ const App = React.createClass({
           <img id="splash-image" src={splashImage} alt="kids doing experiment"/>
           <h1 id="splash-header">Rainy Day Science</h1>
         </div>
+        <SearchByTags />
         <img className="main-icons" src={materialsIcon}/>
         <span className="main-captions">Submit your materials.</span>
         <img className="main-icons" src={beakerIcon}/>
