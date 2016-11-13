@@ -115,7 +115,7 @@ box-shadow: 3px 3px 3px 0px #128da5;
 
 #navbar {
     list-style-type: none;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding: 0;
     overflow: hidden;
     background-color: #488286;
