@@ -57,11 +57,11 @@ const App = React.createClass({
             <img src="https://maps.googleapis.com/maps/api/staticmap?center=225+Bush+St,San+Francisco,CA&zoom=12&size=900x900&maptype=roadmap&markers=225+Bush+St,San+Francisco,CA&markers=Pier+15,San+Francisco,CA&markers=355+Clementina+St,San+Francisco,CA&markers=55+Music+Concourse+Dr,San+Francisco,CA&markers=NightLife,San+Francisco,CA&markers=de+Young,San+Francisco,CA&markers=199+Museum+Way,San+Francisco,CA&markers=9th+Ave+&+Lincoln+Way,San+Francisco,CA&markers=221+4th+St,San+Francisco,CA&markers=1201+Mason+St,San+Francisco,CA&markers=Pier+39,San+Francisco,CA&key=AIzaSyB4Y7iIXkk5aVZ_exiNh1cVM2h1fya61mw" />
           </Modal>
         <span className="main-captions">Explore science near you.</span>
-        <img className="main-icons" src={materialsIcon}/>
+        <a href='/#/search'><img className="main-icons" src={materialsIcon}/></a>
         <span className="main-captions">Submit your materials.</span>
-        <img className="main-icons" src={beakerIcon}/>
-        <span className="main-captions">Find an experiment.</span>
-        <img className="main-icons" src={brainIcon}/>
+        <a href='/#/new_experiment'><img className="main-icons" src={beakerIcon}/></a>
+        <span className="main-captions">Create an experiment.</span>
+        <a href='#'><img className="main-icons" src={brainIcon}/></a>
         <span className="main-captions">Learn and have fun!</span>
         {this.props.children}
       </div>
