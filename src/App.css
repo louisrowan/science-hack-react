@@ -175,11 +175,7 @@ input[type=checkbox] {
   float: left;
   border: 2px solid #777777;
   border-radius: 15px;
-<<<<<<< HEAD
   margin: 4px;
-=======
-  text-align: center;
->>>>>>> 20fddc44d393ab122f4366002d6548543ae9af30
 }
 
 .index-experiment-thumb:hover {
@@ -224,4 +220,35 @@ input[type=checkbox] {
 
 .showbg h2 {
   text-align: center;
+}
+
+.show-explanation-div {
+  width: 80%;
+  margin: auto;
+  padding: 25px;
+  background: whitesmoke;
+}
+
+.show-explanation-div h3 {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.show-explanation-div h3:hover {
+  cursor: pointer;
+}
+
+#hidden-explanation-p {
+  display: none;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  padding: 15px;
+}
+
+.video-show-div {
+  width: 80%;
+  margin: auto;
+  background: whitesmoke;
+  padding: 15px;
 }
