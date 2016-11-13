@@ -68,21 +68,14 @@ const Search = React.createClass({
         let suggestions = this.state.suggestions;
     const rawMaterials = ['wood', 'aluminum', 'toilet paper roll', 'baking soda']
     let showExperiments
+
     if (this.state.experiments.length > 0) {
-
       var filtered = this.state.data.filter((m) => (this.state.materials.indexOf(m.name) !== -1))
-
-
-
       var exFiltered = filtered.map((d) => (
         d.experiment_id
         ))
-
       var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
-
         console.log(final)
-
-
       showExperiments = final.map((d, i) => (
         <div className='index-show-experiment' key={i}>
           <h1>{d.name}</h1>
@@ -90,21 +83,19 @@ const Search = React.createClass({
           <img src={`http://${d.picture}`} />
         </div>
         ))
-
-
     }
      else {
       showExperiments = ''
     }
     return (
       <div className='search-container'>
-                  <div>
-                <ReactTags tags={tags}
-                    suggestions={suggestions}
-                    handleDelete={this.handleDelete}
-                    handleAddition={this.handleAddition}
-                    handleDrag={this.handleDrag} />
-            </div>
+        <div>
+          <ReactTags tags={tags}
+            suggestions={suggestions}
+            handleDelete={this.handleDelete}
+            handleAddition={this.handleAddition}
+            handleDrag={this.handleDrag} />
+          </div>
         <div className='materials-boxes-div'>
           <form>
 
