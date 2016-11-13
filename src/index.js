@@ -10,12 +10,11 @@ const { Router, Route, hashHistory } = require('react-router')
 
 const Index = () => (
   <Router history={hashHistory}>
-    <Route path='/' component={App}>
-      <Route path='/search' component={Search} />
-      <Route path='/show/:id' component={Show} />
-      <Route path='/new_experiment' component={NewExperiment} />
-      <Route path='/google_maps' component={GoogleMaps} />
-    </Route>
+    <Route path='/' component={App} />
+    <Route path='/search' component={Search} />
+    <Route path='/show/:id' component={Show} />
+    <Route path='/new_experiment' component={NewExperiment} />
+    <Route path='/google_maps' component={GoogleMaps} />
   </Router>
 )
 

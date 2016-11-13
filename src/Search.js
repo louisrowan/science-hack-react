@@ -9,7 +9,7 @@ const Search = React.createClass({
       data: '',
       experiments: '',
       tags: [],
-      suggestions: ["Paper", "Wood", "Baking Soda", "Aluminum Foil", "Vinegar"]
+      suggestions: ["Baking Soda", "Vinegar", "Container", "Balloon", "Empty Soda Bottle", "Drinking Straw", "Lemon Juice", "Baking Soda", "Water", "Gelatin", "Corn Syrup", "Measuring Spoons", "Fork", "Eggs", "Black Light", "Highlighter Pen", "Bottle Cap", "Dish Washing Liquid", "Glitter", "Agar Powder", "Cotton Swabs", "Newspaper", "Petri Dish", "Soda Can", "Wool", "Potato", "Straw", "Orange", "Bucket", "Sugar Cubes", "Drinking Glass", "Water", "Construction Paper", "Rubber Bands", "Thermometer", "Pencil"]
     }
   },
   handleDelete(i) {
@@ -68,7 +68,7 @@ const Search = React.createClass({
     let suggestions = this.state.suggestions;
     let boxes;
     if (this.state.data){
-          boxes = this.state.data.map((m, i) => (      
+          boxes = this.state.data.map((m, i) => (
             <div className='label-div' key={i}><div className='materials-list-pic-div'><img src={m.info} /></div><div className='materials-list-check'><input id={m.name} type='checkbox' onChange={this.handleChange} />{m.name}</div></div>
           ))
     } else {
@@ -109,7 +109,7 @@ const Search = React.createClass({
           <form className='frontpage-boxes'>
 
           {boxes}
-      
+
           </form>
           <p className='clearfix'></p>
         </div>
