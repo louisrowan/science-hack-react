@@ -137,6 +137,7 @@
 }
 
 .materials-list-pic-div {
+  text-align: center;
   overflow: hidden;
   width: 100%;
   height: 50%;
@@ -144,14 +145,17 @@
 }
 
 input[type=checkbox] {
+  text-align: center;
   transform: scale(1.2);
 }
 
 .materials-list-pic-div img {
+  text-align: center;
   height: 100%;
 }
 
 .materials-list-check {
+  text-align: center;
   width: 100%;
   height: 50%;
 }
