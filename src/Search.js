@@ -63,6 +63,9 @@ const Search = React.createClass({
       that.setState({ data: r})
     })
   },
+  linkClicked: function(id){
+    console.log(id)
+  },
   render(){
     let tags = this.state.tags;
         let suggestions = this.state.suggestions;
@@ -77,11 +80,11 @@ const Search = React.createClass({
       var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
         console.log(final)
       showExperiments = final.map((d, i) => (
-        <a href={`/#/show/${d.id}`}>
-        <div className='index-show-experiment' key={i}>
+        <a href={`/#/show/${d.id}`} key={i}>
+        <div className='index-show-experiment'>
           <h1>{d.name}</h1>
           <p>{d.discipline}</p>
-          <img src={`http://${d.picture}`} />
+          <img src={`http://${d.picture}`} role='presentation'/>
         </div>
         </a>
         ))

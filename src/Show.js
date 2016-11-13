@@ -1,7 +1,28 @@
 const React = require('react')
+import $ from 'jquery'
 
 const Show = React.createClass({
+  getInitialState: function(){
+    return {
+      data: ''
+    }
+  },
+  componentWillMount: function(){
+    var that = this
+    var path = this.props.location.pathname
+    var request = $.ajax({
+      url: 'http://rainydayscience.herokuapp.com/',
+      dataType: 'json'
+    })
+     request.done(function(r){
+      path = path.slice(-1)
+      path = parseInt(path)
+      const data = r.filter((d) => (d.id === path))
+      that.setState({ data: data[0] })
+    })
+  },
   render(){
+    console.log(this.state.data)
     return (
       <div className='showbg'>
         <div className='img-border'>
