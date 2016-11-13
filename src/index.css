@@ -4,12 +4,39 @@ body {
   font-family: sans-serif;
 }
 
-
 /* ----------------------------------------------- */
 /* Show.js styling */
 
 h2 {
   margin-top: 0px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.experiment-h1-bg {
+  background-color: #CBDDCF;
+  margin-right: 30%;
+  margin-left: 30%;
+  padding: 0px;
+  border-radius: 8px;
+}
+
+.newExperiment {
+  padding: 10px;
+  background-color: #DFF3E3;
+}
+
+.clearForm {
+  width: 500px;
+  clear: both;
+}
+
+.clearForm > input {
+  width: 100%;
+  clear: both;
 }
 
 .bottom_p {

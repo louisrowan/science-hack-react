@@ -1,62 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+const React = require('react')
+import $ from 'jquery'
 
-const coords = {
-  lat: 51.5258541,
-  lng: -0.08040660000006028
-};
-
-const App = React.createClass({
-
-  onMapCreated(map) {
-    map.setOptions({
-      disableDefaultUI: true
-    });
-  },
-
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
-  },
-
-  onCloseClick() {
-    console.log('onCloseClick');
-  },
-
-  onClick(e) {
-    console.log('onClick', e);
-  },
-
-  render() {
+const GoogleMaps = React.createClass({
+  render(){
     return (
-      <Gmaps
-        width={'800px'}
-        height={'600px'}
-        lat={coords.lat}
-        lng={coords.lng}
-        zoom={12}
-        loadingMessage={'Be happy'}
-        params={{v: '3.exp', key: 'YOUR_API_KEY'}}
-        onMapCreated={this.onMapCreated}>
-        <Marker
-          lat={coords.lat}
-          lng={coords.lng}
-          draggable={true}
-          onDragEnd={this.onDragEnd} />
-        <InfoWindow
-          lat={coords.lat}
-          lng={coords.lng}
-          content={'Hello, React :)'}
-          onCloseClick={this.onCloseClick} />
-        <Circle
-          lat={coords.lat}
-          lng={coords.lng}
-          radius={500}
-          onClick={this.onClick} />
-      </Gmaps>
-    );
+      <img src="https://maps.googleapis.com/maps/api/staticmap?center=225+Bush+St,San+Francisco,CA&zoom=13&size=600x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C225+Bush+St,San+Francisco,CA&key=AIzaSyB4Y7iIXkk5aVZ_exiNh1cVM2h1fya61mw" />
+    )
   }
-
 });
 
-ReactDOM.render(<App />, document.getElementById('gmaps'));
+module.exports = GoogleMaps
