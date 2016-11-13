@@ -21,6 +21,7 @@ const Show = React.createClass({
       dataType: 'json'
     })
      request.done(function(r){
+      console.log(r)
       path = parseInt(path)
       const data = r.filter((d) => (d.id === path))
       that.setState({ data: data[0] })
