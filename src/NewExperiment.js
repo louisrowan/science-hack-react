@@ -9,13 +9,13 @@ const NewExperiment = React.createClass({
           <h1>Create Experiment</h1>
         </div>
         <form action="#" className="clearform">
-          Experiment Name<br />
+          <b>Experiment Name</b><br />
           <input type="text" name="name" placeholder="Experiment Name" /><br />
-          Procedure<br />
+          <b>Procedure</b><br />
           <input type="text" name="procedure" placeholder="Procedure" /><br />
-          Video URL<br /> 
+          <b>Video URL</b><br /> 
           <input type="text" name="video" placeholder="Video url" /><br />
-          Discipline<br /> 
+          <b>Discipline</b><br /> 
           <input type="text" name="discipline" placeholder="Discipline" /><br />
           <textarea name="explanation" placeholder="Describe your experiment" rows="6" cols="50" /><br />
           <input type="submit" value="Submit" />
