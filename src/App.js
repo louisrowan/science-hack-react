@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { WithContext as ReactTags } from 'react-tag-input'
 import splashImage from '../public/kids-doing-science.jpg'
 import brainIcon from '../public/brain.png'
 import beakerIcon from '../public/beaker.jpg'
@@ -9,13 +10,6 @@ const App = React.createClass({
   render() {
     return (
       <div className="App">
-        <ul id="navbar">
-          <li><a href='/#/search'>Search</a></li>
-          <li><a href='/#/show'>Show</a></li>
-          <li><a href='/#/new_experiment'>Create Experiment</a></li>
-          <li><a href='/#/googleMaps'>Google Maps</a></li>
-        </ul>
-
         <div className="splash">
           <img id="splash-image" src={splashImage} alt="kids doing experiment"/>
           <h1 id="splash-header">Rainy Day Science</h1>
