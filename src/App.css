@@ -4,35 +4,14 @@
 
 .App {
   text-align: center;
-  border: 2px solid blue;
   width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 .search-input {
   padding: 5px;
   margin: 10px;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 
 .materials-boxes-div {
@@ -52,6 +31,33 @@
 
 .all-shown-experiments {
   display: inline;
+}
+
+#splash {
+  margin-top: 0px;
+}
+
+#splash-image {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#splash-header {
+  position: absolute;
+  top: 400px;
+  margin-left: 20px;
+  font-size: 7em;
+  color: #DFF3E3;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.main-icons {
+  width: 250px;
+  height: 250px;
+}
+
+.main-captions {
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 .show-img {
