@@ -92,19 +92,20 @@ input {
   background-color: #F2F2F2;
 }
 
-.comment {
+.comments div {
   margin: 5px;
   border-radius: 8px;
   padding: 10px;
   background-color: #f9f7f7;
+
 }
 
 .commentsh3 {
-  display: inline-block;
   margin: 10px auto;
   border-radius: 8px;
   padding: 10px;
   width: 300px;
+  text-align: center;
 }
 
 .box-shadow {
@@ -120,3 +121,4 @@ box-shadow: 3px 3px 3px 0px #128da5;
 .video-player {
 
 }
+
