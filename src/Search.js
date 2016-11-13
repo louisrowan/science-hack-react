@@ -1,49 +1,49 @@
 const React = require('react')
+import { WithContext as ReactTags } from 'react-tag-input'
 
 const Search = React.createClass({
-  getInitialState(){
-    return {
-      materials: []
+  getInitialState() {
+        return {
+            tags: [],
+            suggestions: ["Paper", "Wood", "Baking Soda", "Aluminum Foil", "Vinegar"]
+        }
+    },
+    handleDelete(i) {
+        let tags = this.state.tags;
+        tags.splice(i, 1);
+        this.setState({tags: tags});
+    },
+    handleAddition(tag) {
+        let tags = this.state.tags;
+        tags.push({
+            id: tags.length + 1,
+            text: tag
+        });
+        this.setState({tags: tags});
+    },
+    handleDrag(tag, currPos, newPos) {
+        let tags = this.state.tags;
+
+        // mutate array
+        tags.splice(currPos, 1);
+        tags.splice(newPos, 0, tag);
+
+        // re-render
+        this.setState({ tags: tags });
+    },
+    render() {
+        let tags = this.state.tags;
+        let suggestions = this.state.suggestions;
+        return (
+            <div>
+                <ReactTags tags={tags}
+                    suggestions={suggestions}
+                    handleDelete={this.handleDelete}
+                    handleAddition={this.handleAddition}
+                    handleDrag={this.handleDrag} />
+            </div>
+        )
     }
-  },
-  handleChange(e){
-    const newField = e.target.id
-    if (document.getElementById(e.target.id).checked){
-      this.setState({ materials: this.state.materials.concat([newField])})
-    } else {
-      const materials = this.state.materials.filter(function(e){
-        return e !== newField
-      })
-      this.setState({ materials: materials })
-    }
-  },
-  render(){
-    console.log(this.state.materials)
-    const rawMaterials = ['wood', 'aluminum', 'nails', 'baking soda']
-    return (
-      <div className='search-container'>
-        <div id='search-bars'>
-          <form>
-
-          {rawMaterials.map((m, i) => (      
-              <label key={i}><input id={m} type='checkbox' onChange={this.handleChange} />{m}</label>
-          ))}
-      
-          </form>
-          <ul>
-          {this.state.materials.map((e, i) => {
-            return <li key={i}>{e}</li>
-          })}
-          </ul>
-        </div>
-        <div className='experiments-index'>
-          <a href='/#/show'><p>test 1</p></a>
-        </div>
-
-
-      </div>
-    )
-  }
 })
 
 module.exports = Search
