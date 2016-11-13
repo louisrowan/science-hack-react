@@ -127,10 +127,11 @@
 }
 
 .label-div {
-  width: 200px;
+  width: 175px;
   height: 100px;
   float: left;
   border: 2px solid black;
+  margin: 10px;
 }
 
 .materials-list-pic-div {
@@ -141,7 +142,7 @@
 }
 
 input[type=checkbox] {
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
 .materials-list-pic-div img {
@@ -155,4 +156,29 @@ input[type=checkbox] {
 
 .clearfix {
   clear: left;
+}
+
+.all-shown-experiments {
+  max-width: 1200px;
+  margin: auto;
+  background: yellow;
+}
+
+.index-experiment-thumb {
+  width: 400px;
+  height: 500px;
+  background: whitesmoke;
+  overflow: hidden;
+  float: left;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.index-experiment-thumb:hover {
+  background: #488286;
+  font-weight: bold;
+}
+
+.index-experiment-thumb img {
+  height: 50%;
 }

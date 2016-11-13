@@ -84,13 +84,13 @@ const Search = React.createClass({
         ))
       var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
       showExperiments = final.map((d, i) => (
+        <div className='index-experiment-thumb'>
         <a href={`/#/show/${d.id}`} key={i}>
-        <div className='index-show-experiment'>
           <h1>{d.name}</h1>
           <p>{d.discipline}</p>
           <img src={d.picture} role='presentation'/>
-        </div>
         </a>
+        </div>
         ))
     }
      else {
@@ -111,10 +111,7 @@ const Search = React.createClass({
           {boxes}
       
           </form>
-          <p className='clearfix'></p>yy
-        </div>
-        <div className='experiments-index'>
-          <a href='/#/show/3'><p>test 1</p></a>
+          <p className='clearfix'></p>
         </div>
         <div className='all-shown-experiments'>
         {showExperiments}
