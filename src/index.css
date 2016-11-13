@@ -88,11 +88,12 @@ input {
   background-color: #F2F2F2;
 }
 
-.comment {
+.comments div {
   margin: 5px;
   border-radius: 8px;
   padding: 10px;
   background-color: #f9f7f7;
+
 }
 
 .commentsh3 {

@@ -182,3 +182,13 @@ input[type=checkbox] {
 .index-experiment-thumb img {
   height: 50%;
 }
+
+.procedure-list {
+  
+}
+
+.procedure-list li {
+  padding: 5px;
+  text-align: left;
+  font-size: 1.3em;
+}
