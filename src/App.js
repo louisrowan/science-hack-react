@@ -41,19 +41,15 @@ const App = React.createClass({
   render() {
     return (
       <div className="App">
-        <ul id="navbar">
-          <li><a href='/#/search'>Search</a></li>
-          <li><a href='/#/show'>Show</a></li>
-          <li><a href='/#/new_experiment'>Create Experiment</a></li>
-          <li><a href='#' onClick={this.openModal}>Google Maps</a></li>
+        
+        <a href='#' onClick={this.openModal}><img className='map-abs' src="https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png" /></a>
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             style={customStyles} >
-            <img src="https://maps.googleapis.com/maps/api/staticmap?center=225+Bush+St,San+Francisco,CA&zoom=12&size=900x900&maptype=roadmap&markers=225+Bush+St,San+Francisco,CA&markers=Pier+15,San+Francisco,CA&markers=355+Clementina+St,San+Francisco,CA&markers=55+Music+Concourse+Dr,San+Francisco,CA&markers=199+Museum+Way,San+Francisco,CA&markers=9th+Ave+&+Lincoln+Way,San+Francisco,CA&key=AIzaSyB4Y7iIXkk5aVZ_exiNh1cVM2h1fya61mw" />
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=225+Bush+St,San+Francisco,CA&zoom=12&size=900x900&maptype=roadmap&markers=225+Bush+St,San+Francisco,CA&markers=Pier+15,San+Francisco,CA&markers=355+Clementina+St,San+Francisco,CA&markers=55+Music+Concourse+Dr,San+Francisco,CA&markers=NightLife,San+Francisco,CA&markers=de+Young,San+Francisco,CA&markers=199+Museum+Way,San+Francisco,CA&markers=9th+Ave+&+Lincoln+Way,San+Francisco,CA&markers=221+4th+St,San+Francisco,CA&markers=1201+Mason+St,San+Francisco,CA&markers=Pier+39,San+Francisco,CA&key=AIzaSyB4Y7iIXkk5aVZ_exiNh1cVM2h1fya61mw" />
           </Modal>
-        </ul>
 
         <div className="splash">
           <img id="splash-image" src={splashImage} alt="kids doing experiment"/>

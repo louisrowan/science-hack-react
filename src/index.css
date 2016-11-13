@@ -145,3 +145,11 @@ box-shadow: 3px 3px 3px 0px #128da5;
 .active {
     background-color: #4CAF50;
 }
+
+.map-abs {
+  margin-top: 15px;
+  margin-left: -50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}

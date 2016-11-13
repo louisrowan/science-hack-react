@@ -13,7 +13,6 @@ const Index = () => (
     <Route path='/search' component={Search} />
     <Route path='/show/:id' component={Show} />
     <Route path='/new_experiment' component={NewExperiment} />
-    <Route path='/google_maps' component={GoogleMaps} />
   </Router>
 )
 
