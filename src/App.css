@@ -272,3 +272,7 @@ a:hover {
   background: whitesmoke;
   padding: 15px;
 }
+
+#search-by-tags {
+  margin-top: 50px;
+}

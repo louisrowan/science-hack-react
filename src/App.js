@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { WithContext as ReactTags } from 'react-tag-input'
+const SearchByTags = require('./SearchByTags')
 import splashImage from '../public/kids-doing-science.jpg'
 import brainIcon from '../public/brain.png'
 import beakerIcon from '../public/beaker.jpg'
@@ -8,7 +8,7 @@ import materialsIcon from '../public/materials.jpg'
 
 var ReactDOM = require('react-dom');
 var Modal = require('react-modal');
- 
+
 const customStyles = {
   content : {
     top                   : '50%',
@@ -24,16 +24,16 @@ const App = React.createClass({
   getInitialState: function() {
     return { modalIsOpen: false };
   },
- 
+
   openModal: function() {
     this.setState({modalIsOpen: true});
   },
- 
+
   afterOpenModal: function() {
-    // references are now sync'd and can be accessed. 
+    // references are now sync'd and can be accessed.
     this.refs.subtitle.style.color = '#f00';
   },
- 
+
   closeModal: function() {
     this.setState({modalIsOpen: false});
   },
@@ -41,13 +41,14 @@ const App = React.createClass({
   render() {
     return (
       <div className="App">
-        
-        
+
+
 
         <div className="splash">
           <img id="splash-image" src={splashImage} alt="kids doing experiment"/>
           <h1 id="splash-header">Rainy Day Science</h1>
         </div>
+
         <a href='#' onClick={this.openModal}><img className='map-icon' src="https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png" /></a>
           <Modal
             isOpen={this.state.modalIsOpen}
@@ -64,6 +65,7 @@ const App = React.createClass({
         <img className="main-icons" src={brainIcon}/>
         <span className="main-captions">Learn and have fun!</span>
         {this.props.children}
+        <SearchByTags />
       </div>
     );
   }
