@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { WithContext as ReactTags } from 'react-tag-input'
 import splashImage from '../public/kids-doing-science.jpg'
 import brainIcon from '../public/brain.png'
 import beakerIcon from '../public/beaker.jpg'
@@ -53,7 +54,6 @@ const App = React.createClass({
             <img src="https://maps.googleapis.com/maps/api/staticmap?center=225+Bush+St,San+Francisco,CA&zoom=12&size=900x900&maptype=roadmap&markers=225+Bush+St,San+Francisco,CA&markers=Pier+15,San+Francisco,CA&markers=355+Clementina+St,San+Francisco,CA&markers=55+Music+Concourse+Dr,San+Francisco,CA&markers=199+Museum+Way,San+Francisco,CA&markers=9th+Ave+&+Lincoln+Way,San+Francisco,CA&key=AIzaSyB4Y7iIXkk5aVZ_exiNh1cVM2h1fya61mw" />
           </Modal>
         </ul>
-
 
         <div className="splash">
           <img id="splash-image" src={splashImage} alt="kids doing experiment"/>

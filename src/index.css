@@ -130,10 +130,6 @@ box-shadow: 3px 3px 3px 0px #128da5;
     border-right: 1px solid #373E40;
 }
 
-button.google-map {
-  height: 100px;
-}
-
 #navbar > li > a {
     display: block;
     color: #def7f6;
