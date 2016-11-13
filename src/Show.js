@@ -99,11 +99,13 @@ const Show = React.createClass({
           </div>
           <div dangerouslySetInnerHTML={this.createMarkup()}></div>
         </div>
+        <div className='comment-form-div'>
         <form onSubmit={this.formSubmit}>
-          <h5>Comment</h5>
+          <h5>Add Comment</h5>
           <textarea rows="4" cols="50" value={this.state.comment} onChange={this.formChange} /><br />
           <input type="submit" value="Submit" />
         </form>
+        </div>
       </div>
     )
   }
