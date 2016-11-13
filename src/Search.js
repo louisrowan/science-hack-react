@@ -66,7 +66,7 @@ const Search = React.createClass({
   render(){
     let tags = this.state.tags;
         let suggestions = this.state.suggestions;
-    const rawMaterials = ['wood', 'aluminum', 'toilet paper roll', 'Baking Soda']
+    const rawMaterials = ['Baking Soda', 'Vinegar', 'Container', 'Balloon', 'Empty Soda Bottle', 'Drinking Straw', 'Lemon Juice', 'Baking Soda', 'Water', 'Gelatin', 'Corn Syrup', 'Measuring Spoons', 'Fork', 'Eggs']
     let showExperiments
 
     if (this.state.experiments.length > 0) {

@@ -36,25 +36,31 @@ const Show = React.createClass({
     console.log(this.state)
     let materialData
     if (this.state.materials) {
-      materialData = this.state.materials.map((m, i) => (<li key={i}>{m.name}</li>))
+      materialData = this.state.materials.map((m, i) => (<div className='materials-div-double' key={i}><div className='materials-img-div'><img src={m.info} /></div><div className='materials-div-name'>{m.name}</div></div>))
     } else {
       materialData = ''
     }
     return (
       <div className='showbg'>
         <div className='img-border'>
-          <div className='img'><img src={this.state.data.picture} /></div>
+          <div className='img'><img src={this.state.data.picture} className='show-img' /></div>
           <div className='img-description'>
             <div className='descriptionh2'>
               <h2>{this.state.data.name}</h2>
               <p><b>Rating</b>: {this.state.data.rating}</p>
             </div>
             <p>{this.state.data.description}</p>
-            <h2>Materials</h2>
-            <ul>
-              {materialData}
-            </ul>
           </div>
+        </div>
+        <div className='materials-div'>
+          <h2>Materials</h2>
+          {materialData}
+        </div>
+        <div className='show-procedure'>
+          <h2>Procedure</h2>
+          <ul>
+          {this.state.data.procedure}
+          </ul>
         </div>
 
         <h4 className='commentsh3'>Comments</h4>
