@@ -7,7 +7,6 @@
   width: 100%;
 }
 
-
 .search-input {
   padding: 5px;
   margin: 10px;
@@ -171,20 +170,57 @@ input[type=checkbox] {
 }
 
 .index-experiment-thumb {
-  width: 400px;
-  height: 500px;
+  text-align: center;
+  width: 300px;
+  height: 400px;
   background: whitesmoke;
   overflow: hidden;
   float: left;
-  border: 2px solid black;
+  border: 2px solid #777777;
   border-radius: 15px;
+  margin: 4px;
 }
 
 .index-experiment-thumb:hover {
-  background: #488286;
+  border: 10px solid #fff64c;
+  opacity: 0.8;
+  background: #fffdc4;
   font-weight: bold;
 }
 
 .index-experiment-thumb img {
   height: 50%;
+  width: 75%;
+}
+
+.procedure-list {
+
+}
+
+.procedure-list li {
+  padding: 5px;
+  text-align: left;
+  font-size: 1.3em;
+}
+
+.comment-form-div {
+  margin: auto;
+  width: 50%;
+}
+
+.comment-form-div h5 {
+  margin: 5px auto;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+.comment-form-div textarea, input {
+  display: block;
+  width: 90%;
+  margin: auto;
+}
+
+.showbg h2 {
+  text-align: center;
 }
