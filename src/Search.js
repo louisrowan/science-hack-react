@@ -65,8 +65,16 @@ const Search = React.createClass({
   },
   render(){
     let tags = this.state.tags;
-        let suggestions = this.state.suggestions;
-    const rawMaterials = ['Baking Soda', 'Vinegar', 'Container', 'Balloon', 'Empty Soda Bottle', 'Drinking Straw', 'Lemon Juice', 'Baking Soda', 'Water', 'Gelatin', 'Corn Syrup', 'Measuring Spoons', 'Fork', 'Eggs']
+    let suggestions = this.state.suggestions;
+    let boxes;
+    if (this.state.data){
+          boxes = this.state.data.map((m, i) => (      
+            <div className='label-div' key={i}><div className='materials-list-pic-div'><img src={m.info} /></div><div className='materials-list-check'><input id={m.name} type='checkbox' onChange={this.handleChange} />{m.name}</div></div>
+          ))
+    } else {
+      boxes = ''
+    }
+
     let showExperiments
 
     if (this.state.experiments.length > 0) {
@@ -76,13 +84,13 @@ const Search = React.createClass({
         ))
       var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
       showExperiments = final.map((d, i) => (
+        <div className='index-experiment-thumb'>
         <a href={`/#/show/${d.id}`} key={i}>
-        <div className='index-show-experiment'>
           <h1>{d.name}</h1>
           <p>{d.discipline}</p>
           <img src={d.picture} role='presentation'/>
-        </div>
         </a>
+        </div>
         ))
     }
      else {
@@ -98,21 +106,12 @@ const Search = React.createClass({
             handleDrag={this.handleDrag} />
           </div>
         <div className='materials-boxes-div'>
-          <form>
+          <form className='frontpage-boxes'>
 
-          {rawMaterials.map((m, i) => (      
-              <label key={i}><input id={m} type='checkbox' onChange={this.handleChange} />{m}</label>
-          ))}
+          {boxes}
       
           </form>
-          <ul>
-          {this.state.materials.map((e, i) => {
-            return <li key={i}>{e}</li>
-          })}
-          </ul>
-        </div>
-        <div className='experiments-index'>
-          <a href='/#/show/3'><p>test 1</p></a>
+          <p className='clearfix'></p>
         </div>
         <div className='all-shown-experiments'>
         {showExperiments}
