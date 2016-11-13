@@ -1,9 +1,12 @@
 const React = require('react')
+import $ from 'jquery'
 
 const Search = React.createClass({
   getInitialState(){
     return {
-      materials: []
+      materials: [],
+      data: '',
+      experiments: ''
     }
   },
   handleChange(e){
@@ -17,12 +20,57 @@ const Search = React.createClass({
       this.setState({ materials: materials })
     }
   },
+  componentWillMount: function(){
+    var that = this
+    var request = $.ajax({
+      url: 'http://rainydayscience.herokuapp.com/',
+      dataType: 'json'
+    })
+     request.done(function(r){
+      that.setState({ experiments: r })
+    })
+    var materialRequest = $.ajax({
+      url: 'http://rainydayscience.herokuapp.com/static_pages/material',
+      dataType: 'json'
+    })
+    materialRequest.done(function(r){
+      that.setState({ data: r})
+    })
+  },
   render(){
-    console.log(this.state.materials)
-    const rawMaterials = ['wood', 'aluminum', 'nails', 'baking soda']
+    const rawMaterials = ['wood', 'aluminum', 'toilet paper roll', 'baking soda']
+    let showExperiments
+    if (this.state.experiments.length > 0) {
+
+      var filtered = this.state.data.filter((m) => (this.state.materials.indexOf(m.name) !== -1))
+
+
+
+      var exFiltered = filtered.map((d) => (
+        d.experiment_id
+        ))
+
+      var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
+
+        console.log(final)
+
+
+      showExperiments = final.map((d, i) => (
+        <div className='index-show-experiment' key={i}>
+          <h1>{d.name}</h1>
+          <p>{d.discipline}</p>
+          <img src={`http://${d.picture}`} />
+        </div>
+        ))
+
+
+    }
+     else {
+      showExperiments = ''
+    }
     return (
       <div className='search-container'>
-        <div id='search-bars'>
+        <div className='materials-boxes-div'>
           <form>
 
           {rawMaterials.map((m, i) => (      
@@ -37,10 +85,11 @@ const Search = React.createClass({
           </ul>
         </div>
         <div className='experiments-index'>
-          <a href='/#/show'><p>test 1</p></a>
+          <a href='/#/show/3'><p>test 1</p></a>
         </div>
-
-
+        <div className='all-shown-experiments'>
+        {showExperiments}
+        </div>
       </div>
     )
   }
