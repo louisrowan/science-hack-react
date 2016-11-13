@@ -1,4 +1,5 @@
 const React = require('react')
+const ShowHeader = require('./ShowHeader')
 import $ from 'jquery'
 
 const Show = React.createClass({
@@ -42,16 +43,10 @@ const Show = React.createClass({
     }
     return (
       <div className='showbg'>
-        <div className='img-border'>
-          <div className='img'><img src={this.state.data.picture} className='show-img' /></div>
-          <div className='img-description'>
-            <div className='descriptionh2'>
-              <h2>{this.state.data.name}</h2>
-              <p><b>Rating</b>: {this.state.data.rating}</p>
-            </div>
-            <p>{this.state.data.description}</p>
-          </div>
-        </div>
+        <ShowHeader picture={this.state.data.picture}
+        name={this.state.data.name}
+        rating={this.state.data.rating}
+        description={this.state.data.description} />
         <div className='materials-div'>
           <h2>Materials</h2>
           {materialData}
