@@ -33,6 +33,16 @@ input {
   background-color: #DFF3E3;
 }
 
+.newExperiment p, h1 {
+  text-align: center;
+  margin: 0px auto;
+}
+
+.newExperiment textarea {
+  display: block;
+  margin: auto;
+}
+
 .clearForm {
   width: 500px;
   clear: both;
