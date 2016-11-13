@@ -15,7 +15,8 @@ const Show = React.createClass({
   componentWillMount: function(){
     var that = this
     var path = this.props.location.pathname
-    path = path.slice(-1)
+    path = path.match(/\d+$/)
+    path = path[0]
     var request = $.ajax({
       url: 'http://rainydayscience.herokuapp.com/',
       dataType: 'json'
