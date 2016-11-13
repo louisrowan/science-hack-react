@@ -224,3 +224,34 @@ input[type=checkbox] {
 .showbg h2 {
   text-align: center;
 }
+
+.show-explanation-div {
+  width: 80%;
+  margin: auto;
+  padding: 25px;
+  background: whitesmoke;
+}
+
+.show-explanation-div h3 {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.show-explanation-div h3:hover {
+  cursor: pointer;
+}
+
+#hidden-explanation-p {
+  display: none;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  padding: 15px;
+}
+
+.video-show-div {
+  width: 80%;
+  margin: auto;
+  background: whitesmoke;
+  padding: 15px;
+}

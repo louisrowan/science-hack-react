@@ -48,6 +48,9 @@ const Show = React.createClass({
   createMarkup: function(){
     return {__html: this.state.enteredComments}
   },
+  toggleExplanation: function(){
+    $('#hidden-explanation-p').toggle()
+  },
   render(){
     let materialData
     if (this.state.materials) {
@@ -75,13 +78,19 @@ const Show = React.createClass({
           {materialData}
         </div>
 
+        <div className='video-show-div'>
         <center><ReactPlayer url={this.state.data.video_url} /></center>
+        </div>
 
         <div className='show-procedure'>
           <h2>Procedure</h2>
           <ol className='procedure-list'>
             {procedureData}
           </ol>
+        </div>
+        <div className='show-explanation-div'>
+          <h3 onClick={this.toggleExplanation}>How does it work?</h3>
+          <p id='hidden-explanation-p'>{this.state.data.explanation}</p>
         </div>
 
         <h4 className='commentsh3'>Comments</h4>
