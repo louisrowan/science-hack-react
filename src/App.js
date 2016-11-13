@@ -5,9 +5,10 @@ const App = React.createClass({
   render() {
     return (
       <div className="App">
-      <a href='/#/show'>Show</a><br />
-      <a href='/#/test'>Test</a><br />
-      <a href='/#/search'>Search</a>
+         <ul id="navbar">
+          <li><a href='/#/search'>Search</a></li>
+          <li><a href='/#/show'>Show</a></li>
+        </ul>
         {this.props.children}
       </div>
     );
