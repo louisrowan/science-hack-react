@@ -36,3 +36,22 @@
   margin: 10px;
   border-radius: 5px;  
 }
+
+.materials-boxes-div {
+  border: 1px solid green;
+}
+
+.index-show-experiment {
+  border: 5px solid blue;
+  width: 600px;
+  height: 300px;
+  background: green;
+}
+
+.index-show-experiment img {
+  width: 60%;
+}
+
+.all-shown-experiments {
+  display: inline;
+}
