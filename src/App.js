@@ -42,7 +42,13 @@ const App = React.createClass({
     return (
       <div className="App">
         
-        <a href='#' onClick={this.openModal}><img className='map-abs' src="https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png" /></a>
+        
+
+        <div className="splash">
+          <img id="splash-image" src={splashImage} alt="kids doing experiment"/>
+          <h1 id="splash-header">Rainy Day Science</h1>
+        </div>
+        <a href='#' onClick={this.openModal}><img className='map-icon' src="https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png" /></a>
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
@@ -50,11 +56,7 @@ const App = React.createClass({
             style={customStyles} >
             <img src="https://maps.googleapis.com/maps/api/staticmap?center=225+Bush+St,San+Francisco,CA&zoom=12&size=900x900&maptype=roadmap&markers=225+Bush+St,San+Francisco,CA&markers=Pier+15,San+Francisco,CA&markers=355+Clementina+St,San+Francisco,CA&markers=55+Music+Concourse+Dr,San+Francisco,CA&markers=NightLife,San+Francisco,CA&markers=de+Young,San+Francisco,CA&markers=199+Museum+Way,San+Francisco,CA&markers=9th+Ave+&+Lincoln+Way,San+Francisco,CA&markers=221+4th+St,San+Francisco,CA&markers=1201+Mason+St,San+Francisco,CA&markers=Pier+39,San+Francisco,CA&key=AIzaSyB4Y7iIXkk5aVZ_exiNh1cVM2h1fya61mw" />
           </Modal>
-
-        <div className="splash">
-          <img id="splash-image" src={splashImage} alt="kids doing experiment"/>
-          <h1 id="splash-header">Rainy Day Science</h1>
-        </div>
+        <span className="main-captions">Explore science near you.</span>
         <img className="main-icons" src={materialsIcon}/>
         <span className="main-captions">Submit your materials.</span>
         <img className="main-icons" src={beakerIcon}/>
