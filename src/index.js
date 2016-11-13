@@ -10,7 +10,7 @@ const Index = () => (
   <Router history={hashHistory}>
     <Route path='/' component={App}>
       <Route path='/search' component={Search} />
-      <Route path='/show' component={Show} />
+      <Route path='/show/:id' component={Show} />
     </Route>
   </Router>
 )
