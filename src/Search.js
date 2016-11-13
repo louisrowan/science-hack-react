@@ -63,13 +63,10 @@ const Search = React.createClass({
       that.setState({ data: r})
     })
   },
-  linkClicked: function(id){
-    console.log(id)
-  },
   render(){
     let tags = this.state.tags;
         let suggestions = this.state.suggestions;
-    const rawMaterials = ['wood', 'aluminum', 'toilet paper roll', 'baking soda']
+    const rawMaterials = ['Baking Soda', 'Vinegar', 'Container', 'Balloon', 'Empty Soda Bottle', 'Drinking Straw', 'Lemon Juice', 'Baking Soda', 'Water', 'Gelatin', 'Corn Syrup', 'Measuring Spoons', 'Fork', 'Eggs']
     let showExperiments
 
     if (this.state.experiments.length > 0) {
@@ -78,13 +75,12 @@ const Search = React.createClass({
         d.experiment_id
         ))
       var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
-        console.log(final)
       showExperiments = final.map((d, i) => (
         <a href={`/#/show/${d.id}`} key={i}>
         <div className='index-show-experiment'>
           <h1>{d.name}</h1>
           <p>{d.discipline}</p>
-          <img src={`http://${d.picture}`} role='presentation'/>
+          <img src={d.picture} role='presentation'/>
         </div>
         </a>
         ))
