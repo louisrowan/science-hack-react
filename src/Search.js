@@ -37,11 +37,39 @@ const Search = React.createClass({
       that.setState({ data: r})
     })
   },
+
+  // function uniq(a) {
+  //   var seen = {};
+  //   return a.filter(function(item) {
+  //       return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+  //   });
+  // }
+
   render(){
+    var uniqueItems = [];
+    var itemHash = {};
+    for (var i = 0 ; i < this.state.data.length; i++){
+      itemHash[this.state.data[i].name]=0;
+    }
+    for (var i = 0 ; i < this.state.data.length; i++){
+      itemHash[this.state.data[i].name]++;
+      if (itemHash[this.state.data[i].name] === 1){
+        uniqueItems.push(this.state.data[i])
+      }
+    }
+
     let boxes;
-    if (this.state.data){
-          boxes = this.state.data.map((m, i) => (
-            <div className='label-div' key={i}><div className='materials-list-pic-div'><img src={m.info} /></div><div className='materials-list-check'><input id={m.name} type='checkbox' onChange={this.handleChange} />{m.name}</div></div>
+    if (uniqueItems){
+          boxes = uniqueItems.map((m, i) => (
+            <div className='label-div' key={i}>
+              <div className='materials-list-pic-div'>
+                <img src={m.info} />
+              </div>
+              <div className='materials-list-check'>
+                <input id={m.name} type='checkbox' onChange={this.handleChange} />
+                {m.name}
+              </div>
+            </div>
           ))
     } else {
       boxes = ''
