@@ -33,6 +33,16 @@ input {
   background-color: #DFF3E3;
 }
 
+.newExperiment p, h1 {
+  text-align: center;
+  margin: 0px auto;
+}
+
+.newExperiment textarea {
+  display: block;
+  margin: auto;
+}
+
 .clearForm {
   width: 500px;
   clear: both;
@@ -69,6 +79,7 @@ input {
 }
 
 .img-description {
+
   font-size: 1.2em;
   padding: 10px;
   min-width: 500px;
@@ -92,19 +103,20 @@ input {
   background-color: #F2F2F2;
 }
 
-.comment {
+.comments div {
   margin: 5px;
   border-radius: 8px;
   padding: 10px;
   background-color: #f9f7f7;
+
 }
 
 .commentsh3 {
-  display: inline-block;
   margin: 10px auto;
   border-radius: 8px;
   padding: 10px;
   width: 300px;
+  text-align: center;
 }
 
 .box-shadow {
@@ -115,8 +127,47 @@ box-shadow: 3px 3px 3px 0px #128da5;
 
 /* ----------------------------------------------- */
 
-/* video player */
+/*navbar*/
 
-.video-player {
+#navbar {
+    list-style-type: none;
+    margin-bottom: 0px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #488286;
+}
+
+#navbar > li {
+    float: left;
+    border-right: 1px solid #373E40;
+}
+
+#navbar > li > a {
+    display: block;
+    color: #def7f6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navbar > li > a:hover:not(.active) {
+    background-color: #30595b;
+}
+
+.active {
+    background-color: #30595b;
+}
+
+.map-abs {
+  margin-top: 29%;
+  margin-left: -50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}
+
+.map-icon {
+  height: 130px;
+  width: 130px;
 
 }

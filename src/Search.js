@@ -1,5 +1,4 @@
 const React = require('react')
-import { WithContext as ReactTags } from 'react-tag-input'
 import $ from 'jquery'
 
 const Search = React.createClass({
@@ -8,32 +7,7 @@ const Search = React.createClass({
       materials: [],
       data: '',
       experiments: '',
-      tags: [],
-      suggestions: ["Baking Soda", "Vinegar", "Container", "Balloon", "Empty Soda Bottle", "Drinking Straw", "Lemon Juice", "Baking Soda", "Water", "Gelatin", "Corn Syrup", "Measuring Spoons", "Fork", "Eggs", "Black Light", "Highlighter Pen", "Bottle Cap", "Dish Washing Liquid", "Glitter", "Agar Powder", "Cotton Swabs", "Newspaper", "Petri Dish", "Soda Can", "Wool", "Potato", "Straw", "Orange", "Bucket", "Sugar Cubes", "Drinking Glass", "Water", "Construction Paper", "Rubber Bands", "Thermometer", "Pencil"]
     }
-  },
-  handleDelete(i) {
-        let tags = this.state.tags;
-        tags.splice(i, 1);
-        this.setState({tags: tags});
-  },
-  handleAddition(tag) {
-        let tags = this.state.tags;
-        tags.push({
-            id: tags.length + 1,
-            text: tag
-        });
-        this.setState({tags: tags});
-  },
-  handleDrag(tag, currPos, newPos) {
-        let tags = this.state.tags;
-
-        // mutate array
-        tags.splice(currPos, 1);
-        tags.splice(newPos, 0, tag);
-
-        // re-render
-        this.setState({ tags: tags });
   },
   handleChange(e){
     const newField = e.target.id
@@ -63,13 +37,39 @@ const Search = React.createClass({
       that.setState({ data: r})
     })
   },
+
+  // function uniq(a) {
+  //   var seen = {};
+  //   return a.filter(function(item) {
+  //       return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+  //   });
+  // }
+
   render(){
-    let tags = this.state.tags;
-    let suggestions = this.state.suggestions;
+    var uniqueItems = [];
+    var itemHash = {};
+    for (var i = 0 ; i < this.state.data.length; i++){
+      itemHash[this.state.data[i].name]=0;
+    }
+    for (var i = 0 ; i < this.state.data.length; i++){
+      itemHash[this.state.data[i].name]++;
+      if (itemHash[this.state.data[i].name] === 1){
+        uniqueItems.push(this.state.data[i])
+      }
+    }
+
     let boxes;
-    if (this.state.data){
-          boxes = this.state.data.map((m, i) => (
-            <div className='label-div' key={i}><div className='materials-list-pic-div'><img src={m.info} /></div><div className='materials-list-check'><input id={m.name} type='checkbox' onChange={this.handleChange} />{m.name}</div></div>
+    if (uniqueItems){
+          boxes = uniqueItems.map((m, i) => (
+            <div className='label-div' key={i}>
+              <div className='materials-list-pic-div'>
+                <img src={m.info} />
+              </div>
+              <div className='materials-list-check'>
+                <input id={m.name} type='checkbox' onChange={this.handleChange} />
+                {m.name}
+              </div>
+            </div>
           ))
     } else {
       boxes = ''
@@ -98,13 +98,6 @@ const Search = React.createClass({
     }
     return (
       <div className='search-container'>
-        <div>
-          <ReactTags tags={tags}
-            suggestions={suggestions}
-            handleDelete={this.handleDelete}
-            handleAddition={this.handleAddition}
-            handleDrag={this.handleDrag} />
-          </div>
         <div className='materials-boxes-div'>
           <form className='frontpage-boxes'>
 

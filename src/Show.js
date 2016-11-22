@@ -7,13 +7,16 @@ const Show = React.createClass({
   getInitialState: function(){
     return {
       data: '',
-      materials: ''
+      materials: '',
+      comment: '',
+      enteredComments: ''
     }
   },
   componentWillMount: function(){
     var that = this
     var path = this.props.location.pathname
-    path = path.slice(-1)
+    path = path.match(/\d+$/)
+    path = path[0]
     var request = $.ajax({
       url: 'http://rainydayscience.herokuapp.com/',
       dataType: 'json'
@@ -35,13 +38,34 @@ const Show = React.createClass({
       that.setState({ materials: materials })
     })
   },
+  formChange: function(e){
+    this.setState({ comment: e.target.value })
+  },
+  formSubmit: function(){
+    const appendText = `<div className='comment'><p>${this.state.comment}</p><h6>5 hrs ago</h6>`
+    this.setState({ enteredComments: this.state.enteredComments += appendText, comment: ''})
+  },
+  createMarkup: function(){
+    return {__html: this.state.enteredComments}
+  },
+  toggleExplanation: function(){
+    $('#hidden-explanation-p').toggle()
+  },
   render(){
-    console.log(this.state)
     let materialData
     if (this.state.materials) {
       materialData = this.state.materials.map((m, i) => (<div className='materials-div-double' key={i}><div className='materials-img-div'><img src={m.info} /></div><div className='materials-div-name'>{m.name}</div></div>))
     } else {
       materialData = ''
+    }
+
+    let procedureData
+    if (this.state.data.procedure){
+      const split = this.state.data.procedure.split(',')
+      console.log(split)
+      procedureData = split.map((p, i) => (
+        <li key={i}>{p.replace(/["[\]]/g, '')}</li>
+      ))
     }
     return (
       <div className='showbg'>
@@ -54,13 +78,19 @@ const Show = React.createClass({
           {materialData}
         </div>
 
+        <div className='video-show-div'>
         <center><ReactPlayer url={this.state.data.video_url} /></center>
+        </div>
 
         <div className='show-procedure'>
           <h2>Procedure</h2>
-          <ul>
-            {this.state.data.procedure}
-          </ul>
+          <ol className='procedure-list'>
+            {procedureData}
+          </ol>
+        </div>
+        <div className='show-explanation-div'>
+          <h3 onClick={this.toggleExplanation}>How does it work?</h3>
+          <p id='hidden-explanation-p'>{this.state.data.explanation}</p>
         </div>
 
         <h4 className='commentsh3'>Comments</h4>
@@ -77,12 +107,15 @@ const Show = React.createClass({
             <p>The intricacy behind the creation of this experiment is absolutely astounding.  Keep up the good work bra.</p>
             <h6>5 hrs ago</h6>
           </div>
+          <div dangerouslySetInnerHTML={this.createMarkup()}></div>
         </div>
-        <form action="demo_form.asp">
-          <h5>Comment</h5>
-          <textarea rows="4" cols="50" /><br />
+        <div className='comment-form-div'>
+        <form onSubmit={this.formSubmit}>
+          <h5>Add Comment</h5>
+          <textarea rows="4" cols="50" value={this.state.comment} onChange={this.formChange} /><br />
           <input type="submit" value="Submit" />
         </form>
+        </div>
       </div>
     )
   }
