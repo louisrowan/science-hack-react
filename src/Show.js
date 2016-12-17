@@ -20,7 +20,6 @@ const Show = React.createClass({
       dataType: 'json'
     })
      request.done(function(r){
-      console.log(r)
       const data = r.filter((d) => (d.id === that.props.currentExperiment ))
       that.setState({ data: data[0] })
     })
@@ -29,7 +28,6 @@ const Show = React.createClass({
       dataType: 'json'
     })
     materialRequest.done(function(r){
-      console.log(r)
       const materials = r.filter((d) => (d.experiment_id === that.props.currentExperiment ))
       that.setState({ materials: materials })
     })
@@ -49,7 +47,6 @@ const Show = React.createClass({
     $('#hidden-explanation-p').toggle()
   },
   render(){
-    console.log(this.props.currentExperiment)
     let materialData
     if (this.state.materials) {
       materialData = this.state.materials.map((m, i) => (<div className='materials-div-double' key={i}><div className='materials-img-div'  role='presentation' ><img src={m.info}  role='presentation' /></div><div className='materials-div-name'>{m.name}</div></div>))
