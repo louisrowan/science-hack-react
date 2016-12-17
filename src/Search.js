@@ -1,11 +1,12 @@
 const React = require('react')
 import $ from 'jquery'
+const ExperimentThumb = require('./ExperimentThumb')
 
 const Search = React.createClass({
   getInitialState(){
     return {
       materials: [],
-      data: '',
+      data: [],
       experiments: '',
     }
   },
@@ -51,7 +52,7 @@ const Search = React.createClass({
     for (var i = 0 ; i < this.state.data.length; i++){
       itemHash[this.state.data[i].name]=0;
     }
-    for (var i = 0 ; i < this.state.data.length; i++){
+    for (i = 0 ; i < this.state.data.length; i++){
       itemHash[this.state.data[i].name]++;
       if (itemHash[this.state.data[i].name] === 1){
         uniqueItems.push(this.state.data[i])
@@ -63,7 +64,7 @@ const Search = React.createClass({
           boxes = uniqueItems.map((m, i) => (
             <div className='label-div' key={i}>
               <div className='materials-list-pic-div'>
-                <img src={m.info} />
+                <img src={m.info}  role='presentation' />
               </div>
               <div className='materials-list-check'>
                 <input id={m.name} type='checkbox' onChange={this.handleChange} />
@@ -77,20 +78,14 @@ const Search = React.createClass({
 
     let showExperiments
 
-    if (this.state.experiments.length > 0) {
+    if (this.state.experiments.length > 0 && this.state.data) {
       var filtered = this.state.data.filter((m) => (this.state.materials.indexOf(m.name) !== -1))
       var exFiltered = filtered.map((d) => (
         d.experiment_id
         ))
       var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
       showExperiments = final.map((d, i) => (
-        <div className='index-experiment-thumb'>
-        <a href={`/#/show/${d.id}`} key={i}>
-          <h1>{d.name}</h1>
-          <p>{d.discipline}</p>
-          <img src={d.picture} role='presentation'/>
-        </a>
-        </div>
+          <ExperimentThumb data={d} key={i} />
         ))
     }
      else {

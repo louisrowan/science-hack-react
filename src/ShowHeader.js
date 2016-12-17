@@ -5,7 +5,7 @@ const ShowHeader = React.createClass({
     return (
       <div className='img-border'>
         <div className='img'>
-          <img src={this.props.picture} className='show-img' />
+          <img src={this.props.picture} className='show-img'  role='presentation' />
         </div>
         <div className='img-description'>
            <div className='descriptionh2'>

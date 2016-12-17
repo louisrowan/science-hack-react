@@ -1,5 +1,4 @@
 const React = require('react')
-import $ from 'jquery'
 
 const NewExperiment = React.createClass({
   render(){

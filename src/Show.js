@@ -2,6 +2,7 @@ const React = require('react')
 const ShowHeader = require('./ShowHeader')
 import ReactPlayer from 'react-player'
 import $ from 'jquery'
+const { connect } = require('react-redux')
 
 const Show = React.createClass({
   getInitialState: function(){
@@ -14,17 +15,17 @@ const Show = React.createClass({
   },
   componentWillMount: function(){
     var that = this
-    var path = this.props.location.pathname
-    path = path.match(/\d+$/)
-    path = path[0]
+    // var path = this.props.location.pathname
+    // path = path.match(/\d+$/)
+    // path = path[0]
     var request = $.ajax({
       url: 'http://rainydayscience.herokuapp.com/',
       dataType: 'json'
     })
      request.done(function(r){
       console.log(r)
-      path = parseInt(path)
-      const data = r.filter((d) => (d.id === path))
+      // path = parseInt(path, 10)
+      const data = r.filter((d) => (d.id === that.props.currentExperiment ))
       that.setState({ data: data[0] })
     })
     var materialRequest = $.ajax({
@@ -33,8 +34,8 @@ const Show = React.createClass({
     })
     materialRequest.done(function(r){
       console.log(r)
-      path = parseInt(path)
-      const materials = r.filter((d) => (d.experiment_id == path))
+      // path = parseInt(path, 10)
+      const materials = r.filter((d) => (d.experiment_id === that.props.currentExperiment ))
       that.setState({ materials: materials })
     })
   },
@@ -43,7 +44,8 @@ const Show = React.createClass({
   },
   formSubmit: function(){
     const appendText = `<div className='comment'><p>${this.state.comment}</p><h6>5 hrs ago</h6>`
-    this.setState({ enteredComments: this.state.enteredComments += appendText, comment: ''})
+    var text = this.state.enteredComments
+    this.setState({ enteredComments: text += appendText, comment: ''})
   },
   createMarkup: function(){
     return {__html: this.state.enteredComments}
@@ -52,9 +54,10 @@ const Show = React.createClass({
     $('#hidden-explanation-p').toggle()
   },
   render(){
+    console.log(this.props.currentExperiment)
     let materialData
     if (this.state.materials) {
-      materialData = this.state.materials.map((m, i) => (<div className='materials-div-double' key={i}><div className='materials-img-div'><img src={m.info} /></div><div className='materials-div-name'>{m.name}</div></div>))
+      materialData = this.state.materials.map((m, i) => (<div className='materials-div-double' key={i}><div className='materials-img-div'  role='presentation' ><img src={m.info}  role='presentation' /></div><div className='materials-div-name'>{m.name}</div></div>))
     } else {
       materialData = ''
     }
@@ -62,7 +65,6 @@ const Show = React.createClass({
     let procedureData
     if (this.state.data.procedure){
       const split = this.state.data.procedure.split(',')
-      console.log(split)
       procedureData = split.map((p, i) => (
         <li key={i}>{p.replace(/["[\]]/g, '')}</li>
       ))
@@ -121,4 +123,10 @@ const Show = React.createClass({
   }
 })
 
-module.exports = Show
+const mapStateToProps = (state) => {
+  return {
+    currentExperiment: state.currentExperiment
+  }
+}
+
+module.exports = connect(mapStateToProps)(Show)

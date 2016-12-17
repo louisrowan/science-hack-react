@@ -1,6 +1,7 @@
 import React from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 import $ from 'jquery';
+const ExperimentThumb = require('./ExperimentThumb')
 
 const SearchByTags = React.createClass({
   getInitialState() {
@@ -66,13 +67,7 @@ const SearchByTags = React.createClass({
         ))
       var final = this.state.experiments.filter((e) => (exFiltered.indexOf(e.id) !== -1))
       showExperiments = final.map((d, i) => (
-        <div className='index-experiment-thumb'>
-        <a href={`/#/show/${d.id}`} key={i}>
-          <h1>{d.name}</h1>
-          <p>{d.discipline}</p>
-          <img src={d.picture} role='presentation'/>
-        </a>
-        </div>
+          <ExperimentThumb data={d} key={i} />
         ))
         } else {
           showExperiments = ""
