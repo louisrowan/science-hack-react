@@ -24,14 +24,14 @@ const Search = React.createClass({
   componentWillMount: function(){
     var that = this
     var request = $.ajax({
-      url: 'http://rainydayscience.herokuapp.com/',
+      url: 'https://rainydayscience.herokuapp.com/',
       dataType: 'json'
     })
      request.done(function(r){
       that.setState({ experiments: r })
     })
     var materialRequest = $.ajax({
-      url: 'http://rainydayscience.herokuapp.com/static_pages/material',
+      url: 'https://rainydayscience.herokuapp.com/static_pages/material',
       dataType: 'json'
     })
     materialRequest.done(function(r){

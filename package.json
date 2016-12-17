@@ -19,6 +19,8 @@
     "redux-localstorage": "^0.4.1"
   },
   "scripts": {
+    "build": "webpack --config ./webpack.prod.config.js --progress --colors",
+    "start": "node ./src/app.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
