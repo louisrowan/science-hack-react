@@ -15,16 +15,12 @@ const Show = React.createClass({
   },
   componentWillMount: function(){
     var that = this
-    // var path = this.props.location.pathname
-    // path = path.match(/\d+$/)
-    // path = path[0]
     var request = $.ajax({
       url: 'http://rainydayscience.herokuapp.com/',
       dataType: 'json'
     })
      request.done(function(r){
       console.log(r)
-      // path = parseInt(path, 10)
       const data = r.filter((d) => (d.id === that.props.currentExperiment ))
       that.setState({ data: data[0] })
     })
@@ -34,7 +30,6 @@ const Show = React.createClass({
     })
     materialRequest.done(function(r){
       console.log(r)
-      // path = parseInt(path, 10)
       const materials = r.filter((d) => (d.experiment_id === that.props.currentExperiment ))
       that.setState({ materials: materials })
     })

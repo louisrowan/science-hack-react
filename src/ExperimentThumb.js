@@ -8,9 +8,7 @@ const ExperimentThumb = React.createClass({
     router: React.PropTypes.object.isRequired
   },
   handleClick(){
-    console.log(this.props.data.id)
     this.props.dispatchSetExperiment(this.props.data.id)
-    console.log(this.context.router)
     this.context.router.push('/show/' + this.props.data.id)
   },
   render(){
